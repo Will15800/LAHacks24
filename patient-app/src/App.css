@@ -36,12 +36,20 @@ body, html {
   font-weight: bold;
   color: white;
 }
+
 .nav-items a, .login-btn {
   text-decoration: none;
   color: white;
   margin: 0 1rem;
   font-weight: bold;
   transition: color 0.3s ease, transform 0.3s ease;
+  .nav-items {
+  display: flex; /* Ensure it's using flexbox */
+  justify-content: flex-end; /* Align items to the right by default */
+  /* Add margin or padding to adjust the left positioning */
+  margin-right: 510px; /* Adjust this value as needed */
+}
+  
 }
 .nav-items a:hover, .login-btn:hover {
   color: var(--highlight-color);
@@ -90,6 +98,7 @@ body, html {
 main {
   padding: 2rem 5%;
 }
+
 /* Main content sections styling */
 .intro-section {
   padding: 4rem 0;
@@ -144,6 +153,7 @@ footer {
   .nav-items a, .login-btn {
     font-size: 0.9rem;
   }
+  
   .navbar {
     padding: 1rem 5%;
   }

@@ -1,11 +1,31 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-
 import {
-  getAuth,
-} from "firebase/auth";
+    getFirestore,
+    collection,
+    doc,
+    getDoc,
+    getDocs,
+    setDoc,
+    query,
+    where,
+    updateDoc,
+    Timestamp,
+    limit,
+  } from "firebase/firestore";
+  
+  import {
+    getAuth,
+    GoogleAuthProvider,
+    onAuthStateChanged,
+    signOut,
+    signInWithPopup,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    setPersistence,
+    browserLocalPersistence,
+  } from "firebase/auth";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyAwyak_NjshuY-F6Myhni_zjgIiTSQY9xw",
@@ -17,9 +37,19 @@ const firebaseConfig = {
   measurementId: "G-0JDNNV1MJS"
 };
 
+// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const db = firebase.firestore();
+const db = getFirestore(app);
 const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
 
-export { app, auth, analytics, db };
+export {
+  auth,
+  db,
+  googleProvider,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+}
